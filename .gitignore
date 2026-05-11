@@ -22,3 +22,4 @@ dist/
 
 # TypeScript build info
 *.tsbuildinfo
+public/videos/

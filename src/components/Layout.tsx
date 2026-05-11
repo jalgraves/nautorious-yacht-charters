@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Outlet, Link, NavLink } from 'react-router-dom';
 import logo from '@/assets/vertical-logo-3.png';
+import Seo from '@/components/Seo';
 import styles from './Layout.module.css';
 
 const NAV_LINKS = [
@@ -13,6 +14,7 @@ function Layout() {
 
   return (
     <div className={styles.layout}>
+      <Seo />
       <header className={styles.header}>
         <nav className={styles.headerNav}>
           <Link to="/" className={styles.logoLink} onClick={() => setMenuOpen(false)}>

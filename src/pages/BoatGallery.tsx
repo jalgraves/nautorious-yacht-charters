@@ -40,12 +40,11 @@ function renderInfoBlock(block: GalleryInfoBlock, i: number) {
 
 function BoatGallery() {
   const { boatId = '' } = useParams<{ boatId: string }>();
+  const gallery = isGalleryId(boatId) ? GALLERIES[boatId] : null;
+  const title = gallery?.title ?? '';
+  const info = gallery?.info;
+  const photos = gallery?.photos ?? [];
 
-  if (!isGalleryId(boatId)) {
-    return <Navigate to="/gallery" replace />;
-  }
-
-  const { title, info, photos } = GALLERIES[boatId];
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const close = useCallback(() => setActiveIndex(null), []);
@@ -82,6 +81,10 @@ function BoatGallery() {
       window.removeEventListener('keydown', onKey);
     };
   }, [activeIndex, close, prev, next]);
+
+  if (!gallery || !info) {
+    return <Navigate to="/gallery" replace />;
+  }
 
   return (
     <div className={styles.page}>

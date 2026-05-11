@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import logo from '@/assets/nautorious-charters.webp';
+import HomeJsonLd from '@/components/HomeJsonLd';
 import styles from './HomePage.module.css';
 
 /** Shown beneath the hero logo (over the ocean). Edit this string to change the header description. */
@@ -63,6 +64,7 @@ const FLEET = [
 function HomePage() {
   return (
     <div className={styles.page}>
+      <HomeJsonLd />
       <div className={styles.logoContainer}>
         <div className={styles.ocean}>
           <div className={styles.wave} />

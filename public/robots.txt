@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nautoriouscharters.com/sitemap.xml

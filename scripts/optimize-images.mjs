@@ -3,7 +3,7 @@ import { readdir, stat } from 'node:fs/promises';
 import { join, parse } from 'node:path';
 import sharp from 'sharp';
 
-const DIRS = ['public/aquila-36', 'public/aquila-56'];
+const DIRS = ['public/aquila-36', 'public/aquila-54'];
 const SOURCE_EXT = /\.(jpe?g|png)$/i;
 const FULL_QUALITY = 80;
 const THUMB_QUALITY = 75;

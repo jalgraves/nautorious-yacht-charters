@@ -1,0 +1,426 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 2rem 4rem;
+  text-align: center;
+}
+
+.logoContainer {
+  position: relative;
+  width: 100vw;
+  
+  min-height: 360px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.ocean {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    #90e0ef 0%,
+    #48cae4 15%,
+    #00b4d8 30%,
+    #0096c7 50%,
+    #0077b6 70%,
+    #023e8a 90%,
+    #03045e 100%
+  );
+}
+
+/* Surface ripple layers using repeating gradients that scroll */
+.wave,
+.wave2,
+.wave3 {
+  position: absolute;
+  inset: 0;
+  width: 300%;
+  height: 300%;
+}
+
+.wave {
+  background:
+    repeating-linear-gradient(
+      170deg,
+      rgba(144, 224, 239, 0.0) 0px,
+      rgba(144, 224, 239, 0.35) 8px,
+      rgba(144, 224, 239, 0.0) 16px
+    );
+  animation: ripple1 4s linear infinite;
+}
+
+.wave2 {
+  background:
+    repeating-linear-gradient(
+      195deg,
+      rgba(72, 202, 228, 0.0) 0px,
+      rgba(72, 202, 228, 0.25) 12px,
+      rgba(72, 202, 228, 0.0) 24px
+    );
+  animation: ripple2 6s linear infinite;
+}
+
+.wave3 {
+  background:
+    repeating-linear-gradient(
+      155deg,
+      rgba(202, 240, 248, 0.0) 0px,
+      rgba(202, 240, 248, 0.2) 6px,
+      rgba(202, 240, 248, 0.0) 12px
+    );
+  animation: ripple3 5s linear infinite;
+}
+
+/* Caustic light overlay */
+.ocean::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 30% 40%, rgba(255, 255, 255, 0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 70% 60%, rgba(255, 255, 255, 0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 50% 30%, rgba(202, 240, 248, 0.12) 0%, transparent 50%);
+  animation: caustic 8s ease-in-out infinite alternate;
+}
+
+@keyframes ripple1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-16px, -12px);
+  }
+}
+
+@keyframes ripple2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(20px, -18px);
+  }
+}
+
+@keyframes ripple3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-10px, 14px);
+  }
+}
+
+@keyframes caustic {
+  0% {
+    opacity: 0.6;
+    transform: scale(1) rotate(0deg);
+  }
+  33% {
+    opacity: 1;
+    transform: scale(1.05) rotate(2deg);
+  }
+  66% {
+    opacity: 0.7;
+    transform: scale(0.97) rotate(-1deg);
+  }
+  100% {
+    opacity: 0.9;
+    transform: scale(1.02) rotate(1deg);
+  }
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  width: 260px;
+  height: 260px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* Centered column under the logo; copy is left-aligned inside this width */
+.heroText {
+  align-self: center;
+  width: min(34rem, calc(100vw - 2rem));
+  max-width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.heroDescription {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+  line-height: 1.45;
+  font-weight: 600;
+  font-family: var(--font-section);
+  color: rgba(255, 255, 255, 0.96);
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.45),
+    0 2px 16px rgba(0, 30, 80, 0.35);
+}
+
+.heroSubtitle {
+  margin: 0;
+  padding: 0;
+  font-size: 1.15rem;
+  line-height: 1.45;
+  font-weight: 600;
+  font-family: Georgia, "Times New Roman", serif;
+  color: rgba(244, 248, 5, 0.96);
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.45),
+    0 2px 16px rgba(0, 30, 80, 0.35);
+}
+
+@media (min-width: 768px) {
+  .heroText {
+    width: min(36rem, calc(100vw - 2rem));
+  }
+
+  .heroDescription {
+    font-size: 2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.25rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #6b7280;
+}
+
+/* ---- Video section ---- */
+
+.videoSection {
+  width: 100%;
+  max-width: 1000px;
+  padding: 2rem 1rem;
+}
+
+.videoHeading {
+  font-family: var(--font-section);
+  font-size: 2.125rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #0077b6;
+  margin-bottom: 0.75rem;
+}
+
+.sectionDescription {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #4b5563;
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+/* ---- Destinations ---- */
+
+.destinationsSection {
+  width: 100%;
+  margin: 2.5rem 0 3rem;
+}
+
+.destinationsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.destCard {
+  position: relative;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 260px;
+  text-align: left;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.destCard:focus-visible {
+  outline: 3px solid #48cae4;
+  outline-offset: 3px;
+}
+
+.destCard:hover {
+  box-shadow: 0 8px 28px rgba(0, 55, 120, 0.18);
+  transform: translateY(-2px);
+}
+
+.destImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 0.4s ease;
+}
+
+.destCard:hover .destImage {
+  transform: scale(1.06);
+}
+
+.destOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    165deg,
+    rgba(0, 20, 50, 0.25) 0%,
+    rgba(2, 62, 138, 0.45) 38%,
+    rgba(2, 62, 138, 0.88) 100%
+  );
+}
+
+.destText {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 260px;
+  padding: 1.35rem 1.35rem 1.5rem;
+  color: #fff;
+}
+
+.destTitle {
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.destDescription {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.94);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+  max-width: 38rem;
+}
+
+@media (min-width: 640px) {
+  .destinationsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .destinationsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .destCard,
+  .destText {
+    min-height: 280px;
+  }
+}
+
+/* ---- Fleet (photo on top; title + copy below) ---- */
+
+.fleetSection {
+  width: 100%;
+  margin: 2.5rem 0 0;
+}
+
+.fleetGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.fleetCard {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: left;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  background: #f8fafc;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.fleetCard:hover {
+  box-shadow: 0 8px 28px rgba(0, 55, 120, 0.14);
+  transform: translateY(-2px);
+}
+
+.fleetCard:focus-visible {
+  outline: 3px solid #48cae4;
+  outline-offset: 3px;
+}
+
+.fleetImageWrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #e5e7eb;
+}
+
+.fleetImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.fleetCard:hover .fleetImage {
+  transform: scale(1.04);
+}
+
+.fleetBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.1rem 1.25rem 1.35rem;
+}
+
+.fleetTitle {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #0077b6;
+}
+
+.fleetDescription {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #4b5563;
+}
+
+@media (min-width: 640px) {
+  .fleetGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

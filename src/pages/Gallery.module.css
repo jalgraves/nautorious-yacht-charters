@@ -1,0 +1,270 @@
+.page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-family: var(--font-section);
+  font-size: 2.125rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #0077b6;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.backRow {
+  margin-bottom: 1.25rem;
+}
+
+.backLink {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0077b6;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.backLink:hover {
+  color: #023e8a;
+  text-decoration: underline;
+}
+
+/* ---- Boat gallery: info above grid ---- */
+
+.galleryInfo {
+  margin: 0 auto 2rem;
+  max-width: min(52rem, 100%);
+  padding: 1.25rem 1.5rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.galleryInfoHeading {
+  margin: 0 0 0.85rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #213547;
+  font-family: inherit;
+  letter-spacing: normal;
+}
+
+.galleryInfoText {
+  margin: 0 0 0.85rem;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+.galleryInfoSection {
+  margin: 1.35rem 0 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0077b6;
+  font-family: inherit;
+  letter-spacing: normal;
+}
+
+.galleryInfoPlace {
+  margin: 0.9rem 0 0.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #213547;
+  font-family: inherit;
+  letter-spacing: normal;
+}
+
+.galleryInfoList {
+  margin: 0 0 0.9rem;
+  padding-left: 1.35rem;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: #4b5563;
+}
+
+.galleryInfoList li {
+  margin-bottom: 0.35rem;
+}
+
+.galleryInfoList:last-child {
+  margin-bottom: 0;
+}
+
+/* ---- Gallery hub (index) ---- */
+
+.hubIntro {
+  text-align: center;
+  color: #4b5563;
+  margin: 0 auto 2rem;
+  max-width: 36rem;
+  line-height: 1.55;
+}
+
+.hubGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.hubCard {
+  display: block;
+  padding: 1.75rem 1.5rem;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.hubCard:hover {
+  border-color: #0096c7;
+  box-shadow: 0 4px 20px rgba(0, 119, 182, 0.12);
+  transform: translateY(-2px);
+}
+
+.hubCardTitle {
+  margin: 0 0 0.35rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #0077b6;
+}
+
+.hubCardHint {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+/* ---- Thumbnail grid ---- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.thumb {
+  all: unset;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #e5e7eb;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.thumb:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---- Lightbox overlay ---- */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lbImage {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 4px;
+  user-select: none;
+}
+
+.lbClose {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.15s;
+  z-index: 1001;
+}
+
+.lbClose:hover {
+  opacity: 1;
+}
+
+.lbArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 3.5rem;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+  padding: 0.5rem;
+  z-index: 1001;
+  user-select: none;
+}
+
+.lbArrow:hover {
+  opacity: 1;
+}
+
+.lbPrev {
+  left: 1rem;
+}
+
+.lbNext {
+  right: 1rem;
+}
+
+.lbCounter {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.5rem;
+  }
+
+  .lbArrow {
+    font-size: 2.5rem;
+  }
+}

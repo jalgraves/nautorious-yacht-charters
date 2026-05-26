@@ -19,141 +19,54 @@
   padding: 3rem 1rem;
 }
 
-.ocean {
+.heroVideo {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.heroVideoOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   background: linear-gradient(
     180deg,
-    #90e0ef 0%,
-    #48cae4 15%,
-    #00b4d8 30%,
-    #0096c7 50%,
-    #0077b6 70%,
-    #023e8a 90%,
-    #03045e 100%
+    rgba(0, 30, 80, 0.2) 0%,
+    rgba(2, 62, 138, 0.35) 100%
   );
+  pointer-events: none;
 }
 
-/* Surface ripple layers using repeating gradients that scroll */
-.wave,
-.wave2,
-.wave3 {
+.heroLogo {
   position: absolute;
-  inset: 0;
-  width: 300%;
-  height: 300%;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1;
+  width: auto;
+  height: 100px;
+  max-width: min(200px, 42vw);
+  object-fit: contain;
+  object-position: left top;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
 }
 
-.wave {
-  background:
-    repeating-linear-gradient(
-      170deg,
-      rgba(144, 224, 239, 0.0) 0px,
-      rgba(144, 224, 239, 0.35) 8px,
-      rgba(144, 224, 239, 0.0) 16px
-    );
-  animation: ripple1 4s linear infinite;
-}
-
-.wave2 {
-  background:
-    repeating-linear-gradient(
-      195deg,
-      rgba(72, 202, 228, 0.0) 0px,
-      rgba(72, 202, 228, 0.25) 12px,
-      rgba(72, 202, 228, 0.0) 24px
-    );
-  animation: ripple2 6s linear infinite;
-}
-
-.wave3 {
-  background:
-    repeating-linear-gradient(
-      155deg,
-      rgba(202, 240, 248, 0.0) 0px,
-      rgba(202, 240, 248, 0.2) 6px,
-      rgba(202, 240, 248, 0.0) 12px
-    );
-  animation: ripple3 5s linear infinite;
-}
-
-/* Caustic light overlay */
-.ocean::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 40% at 30% 40%, rgba(255, 255, 255, 0.15) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 50% at 70% 60%, rgba(255, 255, 255, 0.1) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 30% at 50% 30%, rgba(202, 240, 248, 0.12) 0%, transparent 50%);
-  animation: caustic 8s ease-in-out infinite alternate;
-}
-
-@keyframes ripple1 {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(-16px, -12px);
+@media (min-width: 768px) {
+  .heroLogo {
+    top: 1.25rem;
+    left: 1.5rem;
+    height: 100px;
+    max-width: 240px;
   }
 }
 
-@keyframes ripple2 {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(20px, -18px);
-  }
-}
-
-@keyframes ripple3 {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(-10px, 14px);
-  }
-}
-
-@keyframes caustic {
-  0% {
-    opacity: 0.6;
-    transform: scale(1) rotate(0deg);
-  }
-  33% {
-    opacity: 1;
-    transform: scale(1.05) rotate(2deg);
-  }
-  66% {
-    opacity: 0.7;
-    transform: scale(0.97) rotate(-1deg);
-  }
-  100% {
-    opacity: 0.9;
-    transform: scale(1.02) rotate(1deg);
-  }
-}
-
-.heroContent {
+/* Centered column; copy is left-aligned inside this width */
+.heroText {
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.logo {
-  width: 260px;
-  height: 260px;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
-}
-
-/* Centered column under the logo; copy is left-aligned inside this width */
-.heroText {
-  align-self: center;
   width: min(34rem, calc(100vw - 2rem));
   max-width: 100%;
   text-align: left;
@@ -205,6 +118,11 @@
 .subtitle {
   font-size: 1.25rem;
   color: #6b7280;
+}
+
+.headerDescription {
+  font-size: 1rem;
+  color: #ffffff;
 }
 
 /* ---- Video section ---- */
@@ -339,6 +257,13 @@
   .destText {
     min-height: 280px;
   }
+}
+
+/* ---- Experiences (same card treatment as destinations) ---- */
+
+.experiencesSection {
+  width: 100%;
+  margin: 0 0 3rem;
 }
 
 /* ---- Fleet (photo on top; title + copy below) ---- */

@@ -3,7 +3,7 @@ import logo from '@/assets/nautorious-charters.webp';
 import HomeJsonLd from '@/components/HomeJsonLd';
 import styles from './HomePage.module.css';
 
-/** Shown beneath the hero logo (over the ocean). Edit this string to change the header description. */
+/** Shown beneath the hero logo (over the header video). Edit this string to change the header description. */
 const HERO_DESCRIPTION = "Florida's most unforgettable on the water experiences";
 
 const DESTINATIONS = [
@@ -44,6 +44,44 @@ const DESTINATIONS = [
   },
 ] as const;
 
+const EXPERIENCES = [
+  {
+    title: 'Sunset Cruises',
+    description:
+      'Golden-hour runs with skyline glow, champagne-ready decks, and the kind of light that turns every photo into a keepsake.',
+    imageSrc: '/experiences/sunset-cruises.jpg',
+    to: '/gallery',
+  },
+  {
+    title: 'Sandbars & Reefs',
+    description:
+      'Anchor in waist-deep turquoise, snorkel glassy coves, and spend the afternoon where the only schedule is the tide.',
+    imageSrc: '/experiences/sandbars-and-reefs.jpg',
+    to: '/gallery',
+  },
+  {
+    title: 'Bachelorette Parties',
+    description:
+      'Your crew, your playlist, your rules — a private floating celebration built for stories worth retelling Monday morning.',
+    imageSrc: '/experiences/bachelorette-parites.jpg',
+    to: '/gallery',
+  },
+  {
+    title: 'Company Outings',
+    description:
+      'Impress clients or reward the team with open water, room to mingle, and a venue that beats any conference room.',
+    imageSrc: '/experiences/company-outing.jpg',
+    to: '/gallery',
+  },
+  {
+    title: 'Memorable Celebrations',
+    description:
+      'Birthdays, anniversaries, proposals, and milestone moments — mark the occasion on the water with a private charter built around your guest list.',
+    imageSrc: '/experiences/memorable-celebrations.JPG',
+    to: '/gallery',
+  },
+] as const;
+
 const FLEET = [
   {
     title: 'Aquila 36',
@@ -66,33 +104,43 @@ function HomePage() {
     <div className={styles.page}>
       <HomeJsonLd />
       <div className={styles.logoContainer}>
-        <div className={styles.ocean}>
-          <div className={styles.wave} />
-          <div className={styles.wave2} />
-          <div className={styles.wave3} />
-        </div>
-        <div className={styles.heroContent}>
-          <img src={logo} alt="Nautorious Yacht Charters" className={styles.logo} />
-          <div className={styles.heroText}>
-            <p className={styles.heroDescription}>
-              {HERO_DESCRIPTION}
-            </p>
-            <p className={styles.heroSubtitle}>
+        <video
+          className={styles.heroVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden
+        >
+          <source src="/aquila-54-background.webm" type="video/webm" />
+          <source src="/aquila-54-background.mp4" type="video/mp4" />
+        </video>
+        <div className={styles.heroVideoOverlay} aria-hidden="true" />
+        <img
+          src={logo}
+          alt="Nautorious Yacht Charters"
+          className={styles.heroLogo}
+        />
+        <div className={styles.heroText}>
+          <p className={styles.heroDescription}>
+            {HERO_DESCRIPTION}
+          </p>
+          <p className={styles.heroSubtitle}>
             Luxury Aquila Yacht Charters in Florida &amp; The Bahamas
-            </p>
-          </div>
+          </p>
+          <p className={styles.headerDescription}>
+            Experience the water the way it should be—comfortable, private, and effortlessly elevated. Our fleet of 36’ and 54’ Aquila Power Catamarans offers premium yacht charters designed for smooth cruising, spacious lounging, and unforgettable days on the water.
+          </p>
         </div>
       </div>
       <section className={styles.videoSection}>
         <p className={styles.sectionDescription}>
-        Experience the water the way it should be—comfortable, private, and effortlessly elevated. Our fleet of 36’ and 54’ Aquila Power Catamarans offers premium yacht charters designed for smooth cruising, spacious lounging, and unforgettable days on the water.
-        </p>
-        <p className={styles.sectionDescription}>
         Based in Florida and operating across St. Petersburg, Miami, Key West, and the Bahamas, we provide flexible private charters ranging from relaxed coastal cruises to full-day and multi-destination offshore adventures.
         </p>
-        <p className={styles.sectionDescription}>
+        {/* <p className={styles.sectionDescription}>
         <strong>The bay is calling. Answer Nautoriously</strong>. Book your Nautorious charter today — and become the legend everyone's talking about Monday morning
-        </p>
+        </p> */}
 
         <section className={styles.destinationsSection} aria-labelledby="destinations-heading">
           <h2 id="destinations-heading" className={styles.videoHeading}>
@@ -123,9 +171,38 @@ function HomePage() {
           </div>
         </section>
 
+        <section className={styles.experiencesSection} aria-labelledby="experiences-heading">
+          <h2 id="experiences-heading" className={styles.videoHeading}>
+            EXPERIENCES
+          </h2>
+          <div className={styles.destinationsGrid}>
+            {EXPERIENCES.map(({ title, description, imageSrc, to }) => (
+              <Link
+                key={title}
+                to={to}
+                className={styles.destCard}
+                aria-label={`${title}: book a charter`}
+              >
+                <img
+                  className={styles.destImage}
+                  src={imageSrc}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className={styles.destOverlay} aria-hidden="true" />
+                <div className={styles.destText}>
+                  <h3 className={styles.destTitle}>{title}</h3>
+                  <p className={styles.destDescription}>{description}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         <section className={styles.fleetSection} aria-labelledby="fleet-heading">
           <h2 id="fleet-heading" className={styles.videoHeading}>
-            THE FLEET
+            LUXARY CATAMARANS
           </h2>
           <div className={styles.fleetGrid}>
             {FLEET.map(({ title, description, imageSrc, to }) => (

@@ -53,6 +53,8 @@ function Layout() {
         <Outlet />
       </main>
       <footer className={styles.footer}>
+        <p>Call us: <strong>919-609-3147</strong></p>
+        <p>Email us: <strong>NautoriousYachtCharters@gmail.com</strong></p>
         <img src={logo} alt="Nautorious Yacht Charters" className={styles.footerLogo} />
         <p>&copy; {new Date().getFullYear()} Nautorious Yacht Charters</p>
       </footer>

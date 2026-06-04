@@ -14,3 +14,128 @@
   letter-spacing: 0.03em;
   color: #0077b6;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 32rem;
+  text-align: left;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.label {
+  font-weight: 600;
+  color: #213547;
+}
+
+.subLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4a5b69;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  font: inherit;
+  color: #213547;
+  background-color: #fff;
+  border: 1px solid #c7d2da;
+  border-radius: 0.5rem;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #0077b6;
+  box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.15);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 7rem;
+}
+
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border: 1px solid #e2e8ec;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.modeToggle {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.dateInputs {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.dateInputs .field {
+  flex: 1 1 12rem;
+}
+
+.submit {
+  align-self: flex-start;
+  padding: 0.7rem 1.75rem;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background-color: #0077b6;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.submit:hover:not(:disabled) {
+  background-color: #023e8a;
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.success {
+  max-width: 32rem;
+  padding: 1rem 1.25rem;
+  color: #14532d;
+  background-color: #dcfce7;
+  border: 1px solid #86efac;
+  border-radius: 0.5rem;
+}
+
+.error {
+  color: #b91c1c;
+  font-weight: 500;
+}
+
+.fallback {
+  color: #4a5b69;
+  font-size: 0.95rem;
+}
